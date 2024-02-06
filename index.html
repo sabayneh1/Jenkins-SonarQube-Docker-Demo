@@ -117,13 +117,29 @@ sudo apt install jenkins -y</code></pre>
 
   </ul>
 
+  <h4>Creating the CI/CD Pipeline with Jenkins</h4>
+  <p>Create a New Pipeline Job: Select "Pipeline" and configure with the provided Jenkinsfile code.</p>
+  <p>Define Environment Variables: Such as GIT_CREDENTIAL_ID, DOCKERHUB_CREDENTIAL_ID.</p>
+  <p>To save your credentials in Jenkins, follow these steps: Add the generated token to Jenkins credentials with any ID.</p>
+  <ol>
+    <li>Manage Jenkins → Credentials → System → Global credentials (unrestricted) → Add Credentials.</li>
+    <li>Pipeline Stages: Outline steps for checkout, build, test, deploy, and analyze phases.</li>
+  </ol>
+
   <h2>Additional Steps for Project Setup and Maintenance</h2>
   <ul>
       <li>Manage Jenkins Credentials: Store all necessary credentials like GitHub, DockerHub, and SonarQube tokens securely in Jenkins. Go to Manage Jenkins → Manage Credentials → System → Global credentials → Add Credentials.</li>
       <li>Pipeline Script: Ensure your Jenkinsfile includes steps for Docker/Docker Compose tasks, NPM installations, Git checkout, and email notifications post-build.</li>
       <li>Email Notification Configuration in Jenkinsfile: Store Credentials for GitHub and DockerHub in Jenkins for secure access.</li>
   </ul>
-
+  
+  <h4>Accessing the Application</h4>
+  <p>Access the services through the Nginx reverse proxy by navigating to your domain or public IP:</p>
+  <ul>
+    <li>/auth/ routes to the auth-service.</li>
+    <li>/users/ routes to the user-service.</li>
+    <li>/products/ routes to the product-service.</li>
+  </ul>
 
 <h2>Conclusion</h2>
 <p>This step-by-step guide covers the creation of a microservices architecture with an integrated CI/CD pipeline using Docker, Jenkins, and SonarQube. For in-depth details and access to the complete setup, refer to the GitHub repository shared at the end of this article. This approach empowers developers to replicate or adapt this architecture for their own projects while ensuring a deeper understanding of each component's role.</p>
