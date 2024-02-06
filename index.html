@@ -15,7 +15,7 @@
 
 <h2>Step-by-Step Guide</h2>
 
-<h3>1. Initial Server Setup</h3>
+<h3>Initial Server Setup</h3>
 <p>Begin by setting up your Ubuntu Server:</p>
 <ul>
     <li>Update packages:
@@ -41,7 +41,11 @@ sudo chmod +x /usr/local/bin/docker-compose</code></pre>
     </li>
 </ul>
 
-<h3>2. Jenkins Installation and Configuration</h3>
+<h2>Diagram of the Project</h2>
+<p>Insert your diagram here.</p>
+
+
+<h3>Jenkins Installation and Configuration</h3>
 <p>After preparing your Ubuntu server with the initial setup, proceed with the Jenkins installation and configuration as follows:</p>
   <p>Update your package manager:</p>
   <pre><code>sudo apt update</code></pre>
@@ -61,9 +65,58 @@ sudo apt install jenkins -y</code></pre>
   <p>Next, proceed to install the required Jenkins Plugins for Docker, SonarQube Scanner, and Pipeline support as previously outlined. This will ensure your Jenkins instance is ready to handle the CI/CD pipeline for your microservices architecture.</p>
   <p>Add Jenkins repository and install Jenkins. Access it at http://your_server_ip_or_domain:8080 and complete the setup.</p>
 
-<h2>Diagram of the Project</h2>
-<p>Insert your diagram here.</p>
+  <h2>Create and Login to SonarQube</h2>
+  <p>Run SonarQube as a Docker container:</p>
+  <pre><code>sudo docker run -d --name sonarqube -p 9000:9000 sonarqube</code></pre>
+  <p>Access SonarQube at <em>http://your_server_ip_or_domain:9000</em>. The default credentials are:</p>
+  <ul>
+      <li>Username: admin</li>
+      <li>Password: admin</li>
+  </ul>
+  <p>Once logged in, click on "Administration" in the top right corner. Under the "Projects" section, click on "Management." Click on the "+" icon to create a new project. Provide a unique project key and display name. Click "Create."</p>
 
+  <h2>Step 5: Generate an Authentication Token</h2>
+  <p>Go to "Administration" &gt; "Security" &gt; "Users." Select your user (admin) or create a new one. Navigate to the "Tokens" tab. Click on "Generate Tokens." Provide a name for the token (e.g., Jenkins Token).</p>
+
+  <h2>1. Install Required Plugins</h2>
+  <p>To enhance your Jenkins setup with Docker, Docker Compose, NPM, Git, email notifications, and monitoring capabilities, follow these steps:</p>
+  <ol>
+      <li>Go to Jenkins Dashboard: Navigate through Manage Jenkins → Manage Plugins.</li>
+      <li>Install Plugins: In the "Available" tab, search and install the following plugins if they're not already installed:
+          <ul>
+              <li>Docker Pipeline (for Docker support)</li>
+              <li>CloudBees Docker Build and Publish (for Docker image handling)</li>
+              <li>Pipeline: NPM (for NPM support)</li>
+              <li>Git plugin (for Git support)</li>
+              <li>Email Extension Plugin (for enhanced email notifications)</li>
+              <li>Build Monitor View (for creating a monitoring dashboard)</li>
+              <li>Any other plugins you find necessary for your setup (e.g., NodeJS plugin for managing Node versions).</li>
+          </ul>
+      </li>
+  </ol>
+
+  <h2>2. Configure Tools and Plugins</h2>
+  <p>Docker and Docker Compose: Ensure Docker is installed on your Jenkins agent or server. For Docker Compose, you might need to install it separately on the agent.</p>
+  <p>NPM and Node.js: Use the NodeJS plugin to configure NPM and Node.js versions under Manage Jenkins → Global Tool Configuration.</p>
+  <p>Git: Configure Git under Global Tool Configuration if needed, ensuring Jenkins can access your repositories.</p>
+  <p>Email Notifications: Configure email notifications under Manage Jenkins → Configure System → Extended E-mail Notification. Set SMTP server, user credentials, and other settings as required.</p>
+  <p>Monitoring View: After installing the Build Monitor View plugin, create a new view by clicking on "+ New View" on the Jenkins dashboard. Select "Build Monitor View" and configure it to display your jobs' status.</p>
+
+  <h2>3. Setting Up SonarQube Scanner</h2>
+  <p>In addition to the SonarQube plugin installation, ensure the SonarQube Scanner is set up:</p>
+  <ul>
+      <li>Navigate to Manage Jenkins → Global Tool Configuration.</li>
+      <li>Find the SonarQube Scanner section and configure it with the path to the SonarScanner or automatically install it.</li>
+  </ul>
+
+  <h2>Additional Steps for Project Setup and Maintenance</h2>
+  <ul>
+      <li>Manage Jenkins Credentials: Store all necessary credentials like GitHub, DockerHub, and SonarQube tokens securely in Jenkins. Go to Manage Jenkins → Manage Credentials → System → Global credentials → Add Credentials.</li>
+      <li>Pipeline Script: Ensure your Jenkinsfile includes steps for Docker/Docker Compose tasks, NPM installations, Git checkout, and email notifications post-build.</li>
+      <li>Email Notification Configuration in Jenkinsfile: Store Credentials for GitHub and DockerHub in Jenkins for secure access.</li>
+  </ul>
+
+  
 <h2>Conclusion</h2>
 <p>This step-by-step guide covers the creation of a microservices architecture with an integrated CI/CD pipeline using Docker, Jenkins, and SonarQube. For in-depth details and access to the complete setup, refer to the GitHub repository shared at the end of this article. This approach empowers developers to replicate or adapt this architecture for their own projects while ensuring a deeper understanding of each component's role.</p>
 
