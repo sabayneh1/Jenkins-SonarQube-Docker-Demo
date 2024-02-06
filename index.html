@@ -110,10 +110,10 @@ sudo apt install jenkins -y</code></pre>
   </ul>
   <p>Once logged in, click on "Administration" in the top right corner. Under the "Projects" section, click on "Management." Click on the "+" icon to create a new project. Provide a unique project key and display name. Click "Create."</p>
 
-  <h2>Step 5: Generate an Authentication Token</h2>
+  <h2>Generate an Authentication Token in SonarQube</h2>
   <p>Go to "Administration" &gt; "Security" &gt; "Users." Select your user (admin) or create a new one. Navigate to the "Tokens" tab. Click on "Generate Tokens." Provide a name for the token (e.g., Jenkins Token).</p>
 
-  <h2>1. Install Required Plugins</h2>
+  <h2>Install Required Plugins</h2>
   <p>To enhance your Jenkins setup with Docker, Docker Compose, NPM, Git, email notifications, and monitoring capabilities, follow these steps:</p>
   <ol>
       <li>Go to Jenkins Dashboard: Navigate through Manage Jenkins → Manage Plugins.</li>
@@ -157,7 +157,7 @@ sudo apt install jenkins -y</code></pre>
   <p>Define Environment Variables: Such as GIT_CREDENTIAL_ID, DOCKERHUB_CREDENTIAL_ID.</p>
   <p>To save your credentials in Jenkins, follow these steps: Add the generated token to Jenkins credentials with any ID.</p>
   <ol>
-    <li>Manage Jenkins → Credentials → System → Global credentials (unrestricted) → Add Credentials.</li>
+    
     <li>Pipeline Stages: Outline steps for checkout, build, test, deploy, and analyze phases.</li>
   </ol>
 
