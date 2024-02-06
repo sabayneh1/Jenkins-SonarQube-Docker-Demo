@@ -97,7 +97,7 @@ sudo apt install jenkins -y</code></pre>
 
   <h2>2. Configure Tools and Plugins</h2>
   <p>Docker and Docker Compose: Ensure Docker is installed on your Jenkins agent or server. For Docker Compose, you might need to install it separately on the agent.</p>
-  <p>NPM and Node.js: Use the NodeJS plugin to configure NPM and Node.js versions under Manage Jenkins → Global Tool Configuration.</p>
+  <p>To use the downloaded plugin we need to go to Manage Jenkins → Global Tool Configuration. and configure the the plugins</p>
   <p>Git: Configure Git under Global Tool Configuration if needed, ensuring Jenkins can access your repositories.</p>
   <p>Email Notifications: Configure email notifications under Manage Jenkins → Configure System → Extended E-mail Notification. Set SMTP server, user credentials, and other settings as required.</p>
   <p>Monitoring View: After installing the Build Monitor View plugin, create a new view by clicking on "+ New View" on the Jenkins dashboard. Select "Build Monitor View" and configure it to display your jobs' status.</p>
@@ -107,6 +107,14 @@ sudo apt install jenkins -y</code></pre>
   <ul>
       <li>Navigate to Manage Jenkins → Global Tool Configuration.</li>
       <li>Find the SonarQube Scanner section and configure it with the path to the SonarScanner or automatically install it.</li>
+      <li>We will need to tell Jenkins where to find the SonarQube server, which can be done by following these steps:
+        <ol>
+          <li>Go to Jenkins > Manage Jenkins > Configure System.</li>
+          <li>Scroll down to the "SonarQube servers" section.</li>
+          <li>Click on "Add SonarQube" to add a new server.</li>
+          <li>Provide a name (e.g., "SonarQube Server").</li>
+        </li>
+
   </ul>
 
   <h2>Additional Steps for Project Setup and Maintenance</h2>
@@ -116,7 +124,7 @@ sudo apt install jenkins -y</code></pre>
       <li>Email Notification Configuration in Jenkinsfile: Store Credentials for GitHub and DockerHub in Jenkins for secure access.</li>
   </ul>
 
-  
+
 <h2>Conclusion</h2>
 <p>This step-by-step guide covers the creation of a microservices architecture with an integrated CI/CD pipeline using Docker, Jenkins, and SonarQube. For in-depth details and access to the complete setup, refer to the GitHub repository shared at the end of this article. This approach empowers developers to replicate or adapt this architecture for their own projects while ensuring a deeper understanding of each component's role.</p>
 
