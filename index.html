@@ -2,6 +2,41 @@
 <html>
 <head>
     <title>Building a Microservices Architecture with CI/CD Using Docker, Jenkins, and SonarQube</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+        p, ul, pre {
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: monospace;
+            color: #d63384;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            list-style-position: inside;
+        }
+    </style>
 </head>
 <body>
 
@@ -132,7 +167,7 @@ sudo apt install jenkins -y</code></pre>
       <li>Pipeline Script: Ensure your Jenkinsfile includes steps for Docker/Docker Compose tasks, NPM installations, Git checkout, and email notifications post-build.</li>
       <li>Email Notification Configuration in Jenkinsfile: Store Credentials for GitHub and DockerHub in Jenkins for secure access.</li>
   </ul>
-  
+
   <h4>Accessing the Application</h4>
   <p>Access the services through the Nginx reverse proxy by navigating to your domain or public IP:</p>
   <ul>
