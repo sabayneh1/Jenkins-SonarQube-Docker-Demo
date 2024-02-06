@@ -42,7 +42,24 @@ sudo chmod +x /usr/local/bin/docker-compose</code></pre>
 </ul>
 
 <h3>2. Jenkins Installation and Configuration</h3>
-<!-- Similar structure for subsequent steps -->
+<p>After preparing your Ubuntu server with the initial setup, proceed with the Jenkins installation and configuration as follows:</p>
+  <p>Update your package manager:</p>
+  <pre><code>sudo apt update</code></pre>
+  <p>Install Java (Jenkins requires Java to run):</p>
+  <pre><code>sudo apt install openjdk-11-jdk -y</code></pre>
+  <p>Add the Jenkins repository and key:</p>
+  <pre><code>wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+echo "deb https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list</code></pre>
+  <p>Install Jenkins:</p>
+  <pre><code>sudo apt update
+sudo apt install jenkins -y</code></pre>
+  <p>Start Jenkins:</p>
+  <pre><code>sudo systemctl start jenkins</code></pre>
+  <p>Enable Jenkins to run at boot:</p>
+  <pre><code>sudo systemctl enable jenkins</code></pre>
+  <p>After completing these steps, Jenkins will be installed and running on your server. You can access it by navigating to http://your_server_ip_or_domain:8080. The initial setup will guide you through unlocking Jenkins with an automatically generated admin password, located in /var/lib/jenkins/secrets/initialAdminPassword, and through the installation of recommended plugins.</p>
+  <p>Next, proceed to install the required Jenkins Plugins for Docker, SonarQube Scanner, and Pipeline support as previously outlined. This will ensure your Jenkins instance is ready to handle the CI/CD pipeline for your microservices architecture.</p>
+  <p>Add Jenkins repository and install Jenkins. Access it at http://your_server_ip_or_domain:8080 and complete the setup.</p>
 
 <h2>Diagram of the Project</h2>
 <p>Insert your diagram here.</p>
