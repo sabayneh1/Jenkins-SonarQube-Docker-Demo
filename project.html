@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Building a Microservices Architecture with CI/CD Using Docker, Jenkins, and SonarQube</title>
+</head>
+<body>
+
+<h1>Building a Microservices Architecture with CI/CD Using Docker, Jenkins, and SonarQube</h1>
+
+<h2>Introduction</h2>
+<p>This article provides a comprehensive guide to create a robust microservices architecture with a Continuous Integration/Continuous Deployment (CI/CD) pipeline using Docker, Jenkins, and SonarQube. By the end, you'll have access to the GitHub repository for this project.</p>
+
+<h2>Prerequisites</h2>
+<p>Before diving in, make sure you have basic knowledge of Linux (Ubuntu), Docker, and Jenkins. You should also have an Ubuntu Server at your disposal with Docker, Docker Compose, and Jenkins installed.</p>
+
+<h2>Step-by-Step Guide</h2>
+
+<h3>1. Initial Server Setup</h3>
+<p>Begin by setting up your Ubuntu Server:</p>
+<ul>
+    <li>Update packages:
+        <pre><code>sudo apt update</code></pre>
+    </li>
+    <li>Install Java for Jenkins:
+        <pre><code>sudo apt install openjdk-11-jdk -y</code></pre>
+    </li>
+    <li>Install Docker and Docker Compose:
+        <pre><code># Docker
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install docker-ce -y
+
+# Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose</code></pre>
+    </li>
+    <li>Install Node.js, NPM, and Git:
+        <pre><code>sudo apt install nodejs npm git -y</code></pre>
+    </li>
+</ul>
+
+<h3>2. Jenkins Installation and Configuration</h3>
+<!-- Similar structure for subsequent steps -->
+
+<h2>Diagram of the Project</h2>
+<p>Insert your diagram here.</p>
+
+<h2>Conclusion</h2>
+<p>This step-by-step guide covers the creation of a microservices architecture with an integrated CI/CD pipeline using Docker, Jenkins, and SonarQube. For in-depth details and access to the complete setup, refer to the GitHub repository shared at the end of this article. This approach empowers developers to replicate or adapt this architecture for their own projects while ensuring a deeper understanding of each component's role.</p>
+
+<h2>GitHub Project Page</h2>
+<p>Access the complete setup and source code on GitHub: <a href="https://github.com/sabayneh1/docker-Distributed-System-with-Microservices-Architecture.git">GitHub Repository</a>.</p>
+
+</body>
+</html>
