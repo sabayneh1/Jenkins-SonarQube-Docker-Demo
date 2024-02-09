@@ -121,6 +121,7 @@ sudo apt install jenkins -y</code></pre>
   <p>To enhance your Jenkins setup with Docker, Docker Compose, NPM, Git, email notifications, and monitoring capabilities, follow these steps:</p>
   <ol>
       <li>Go to Jenkins Dashboard: Navigate through Manage Jenkins → Manage Plugins.</li>
+      <img src="images/pluginsOptins.png" alt="install required plugins" style="max-width:100%;height:auto;">
       <li>Install Plugins: In the "Available" tab, search and install the following plugins if they're not already installed:
           <ul>
               <li>Docker Pipeline (for Docker support)</li>
@@ -155,14 +156,15 @@ sudo apt install jenkins -y</code></pre>
         </li>
 
   </ul>
-
+<img src="images/Jenkins-sonarquibeServer.png" alt="Adding SonarQube Server in Jenkins" style="max-width:100%;height:auto;">
   <h4>Creating the CI/CD Pipeline with Jenkins and Additional Project Setup Steps</h4>
   <p>To establish a comprehensive CI/CD pipeline using Jenkins, follow these organized steps, ensuring your project is built, tested, and deployed efficiently with necessary security measures.</p>
 
   <ol>
       <li><strong>Create a New Pipeline Job:</strong> Begin by selecting "Pipeline" in Jenkins and configure it with the provided Jenkinsfile code. This sets the foundation for your CI/CD pipeline.</li>
       <li><strong>Define Environment Variables:</strong> Specify essential environment variables such as GIT_CREDENTIAL_ID and DOCKERHUB_CREDENTIAL_ID. These variables are crucial for the pipeline's interaction with external services and repositories.</li>
-      <li><strong>Manage Jenkins Credentials:</strong> Securely store all necessary credentials, including tokens for GitHub, DockerHub, and SonarQube. Navigate within Jenkins to <em>Manage Jenkins → Manage Credentials → System → Global credentials → Add Credentials</em>. Proper credential management prevents the need to hardcode sensitive information in your Jenkinsfile and secures access to your repositories and container registries.</li>
+      <li><strong>Manage Jenkins Credentials:</strong> Securely store all necessary credentials, including tokens for GitHub, DockerHub, and SonarQube. Navigate within Jenkins to <em>Manage Jenkins → Manage Credentials → System → Global credentials → Add Credentials</em>. Proper credential management prevents the need to hardcode sensitive information in your Jenkinsfile and secures access to your repositories and container registries. Adding credential to Jenkins as below: </li>
+      <img src="images/adGloablCredentailFoSonarquibe.png" alt="Adding Credentials in jenkins" style="max-width:100%;height:auto;">
       <li><strong>Pipeline Stages:</strong> Detail the pipeline stages to outline the steps for checkout, build, test, deploy, and analyze phases. Structuring these stages clearly is key to a smooth CI/CD process.</li>
       <li><strong>Pipeline Script Enhancements:</strong> Enhance your Jenkinsfile to include tasks for Docker/Docker Compose, NPM installations, Git checkout, and post-build email notifications. Incorporating these steps ensures that your pipeline covers code compilation, containerization, and communication regarding build statuses.</li>
       <li><strong>Email Notification Configuration:</strong> Integrate email notifications within your Jenkinsfile to inform the team about the build status. This facilitates rapid response to any failures or issues and promotes effective collaboration and troubleshooting.</li>
